@@ -17,6 +17,7 @@ const paperSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    sharedWith:[],
     questions: [],
     answers: [],
     optionImages: [],

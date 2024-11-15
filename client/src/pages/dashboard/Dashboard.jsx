@@ -55,8 +55,9 @@ export default function Dashboard() {
 
   const fetchPapers = async () => {
     try {
+        console.log("fetching...")
       const response = await axios.get(
-        "http://localhost:8000/api/v1/papers/getAllPapers/"
+        "http://localhost:8000/api/v1/papers/getAllPapers/"+ token.user._id
       );
       setAllPapers(response.data);
     } catch (error) {
@@ -66,7 +67,8 @@ export default function Dashboard() {
 
   const checkifMember = async (grpID) => {
     try {
-      if (grpID == undefined) return false;
+        navigate(`/app/groups/${grpID}`);
+        if (grpID == undefined) return false;
       const value = await axios.post(
         "http://localhost:8000/api/v1/groups/check-members",
         { GroupID: grpID, userID: token.user._id }
@@ -124,8 +126,9 @@ export default function Dashboard() {
       <Box p="4" flex={1}>
         <Tabs>
           <TabList>
-            <Tab>All available Tests</Tab>
-            <Tab>Your Tests</Tab>
+            <Tab>Shared</Tab>
+            <Tab>Owned</Tab>
+            <Tab>Bookmarked</Tab>
           </TabList>
           <TabPanels>
             <TabPanel>
@@ -138,22 +141,6 @@ export default function Dashboard() {
                           <Flex direction="row" justify="space-between">
                             <Heading size="md">{paper.paperTitle}</Heading>
 
-                            <VStack>
-                              <ArrowUpIcon
-                                cursor="pointer"
-                                onClick={() => handleLike(paper._id)}
-                                boxSize={7}
-                              />
-                              <Text fontSize="lg">
-                                {paper.likes_users.length -
-                                  paper.dislikes_users.length}
-                              </Text>
-                              <ArrowDownIcon
-                             cursor="pointer"
-                                onClick={() => handleDislike(paper._id)}
-                                boxSize={7}
-                              />
-                            </VStack>
                           </Flex>
                           <Text color="blue.600" fontSize="2xl">
                             {paper.userId.username}
@@ -198,7 +185,7 @@ export default function Dashboard() {
                           <Flex direction="row" justify="space-between">
                             <Heading size="md">{paper.paperTitle}</Heading>
 
-                            <VStack>
+                            {/* <VStack>
                               <ArrowUpIcon
                             cursor="pointer"
                                 onClick={() => handleLike(paper._id)}
@@ -213,7 +200,7 @@ export default function Dashboard() {
                                 onClick={() => handleDislike(paper._id)}
                                 boxSize={7}
                               />
-                            </VStack>
+                            </VStack> */}
                           </Flex>
                           <Text color="blue.600" fontSize="2xl">
                             You
@@ -224,6 +211,50 @@ export default function Dashboard() {
                       <CardFooter>
                         <ButtonGroup spacing="2">
                           <Button variant="solid" colorScheme="green">
+                            Attempt Now
+                          </Button>
+                          <Button
+                            variant="solid"
+                            colorScheme="gray"
+                            color="gray"
+                          >
+                            Analytics
+                          </Button>
+                          <Button
+                            variant="solid"
+                            colorScheme="gray"
+                            color="gray"
+                            onClick={() => checkifMember(paper.GroupID)}
+                          >
+                            Notes
+                          </Button>
+                        </ButtonGroup>
+                      </CardFooter>
+                    </Card>
+                  </WrapItem>
+                ))}
+              </Wrap>
+            </TabPanel>
+            <TabPanel>
+              <Wrap spacing="15px" justify="center" mt="15px">
+                {allPapers.map((paper, index) => (
+                  <WrapItem key={index}>
+                    <Card maxW="sm" p="8px" border="1px" borderColor="gray.300">
+                      <CardBody>
+                        <Stack mt="6" spacing="3">
+                          <Flex direction="row" justify="space-between">
+                            <Heading size="md">{paper.paperTitle}</Heading>
+
+                          </Flex>
+                          <Text color="blue.600" fontSize="2xl">
+                            {paper.userId.username}
+                          </Text>
+                        </Stack>
+                      </CardBody>
+                      <Divider />
+                      <CardFooter>
+                        <ButtonGroup spacing="2">
+                          <Button variant="solid" colorScheme="green" onClick={() => paperAttempt(paper)}>
                             Attempt Now
                           </Button>
                           <Button

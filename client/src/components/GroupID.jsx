@@ -98,8 +98,7 @@ const GroupID = ({ifTest}) => {
         
       <Stack m="10px" w="800px" divider={<StackDivider />}>
       {!ifTest && <Flex direction="column" gap="10px" m="10px">
-          <Text fontSize="2xl">Group ID: {id}</Text>
-          <Text>Others can use the above ID to join this group.</Text>
+          <Text fontSize="2xl">Notes Pane</Text>
         </Flex>}
         <Box>
           <Card>
@@ -108,7 +107,7 @@ const GroupID = ({ifTest}) => {
                         </CardHeader> */}
             <CardBody>
               <Textarea
-                placeholder="Send a message!"
+                placeholder="Write a note!"
                 resize="none"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
@@ -122,7 +121,7 @@ const GroupID = ({ifTest}) => {
                 }}
               />
             </CardBody>
-            <Button onClick={sendM}>Send</Button>
+            <Button onClick={sendM}>Save Note</Button>
           </Card>
         </Box>
         {/* <Box>{content}</Box> */}
@@ -131,7 +130,6 @@ const GroupID = ({ifTest}) => {
             {content.map((ele, index) => (
               <Card key={index}>
                 <CardBody>
-                  <Text fontSize="sm">{ele.postedBy.username}</Text>
                   <Text fontSize="xl">{ele.content}</Text>
                 </CardBody>
               </Card>
