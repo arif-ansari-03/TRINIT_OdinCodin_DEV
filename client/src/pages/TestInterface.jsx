@@ -7,6 +7,7 @@ import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import "./TestInterface.css";
 
 export default function TestInterface() {
     const toast = useToast()
@@ -46,7 +47,7 @@ export default function TestInterface() {
         };
     
         // Fullscreen the document body on component mount
-        launchFullScreen(document.documentElement);
+        // launchFullScreen(document.documentElement);
     
         // Exit fullscreen on component unmount (optional)
         return () => {
@@ -111,31 +112,32 @@ export default function TestInterface() {
     const { testId } = useParams(); // Get paperId from the URL using useParams
 
     const PaperSubmitHandler = () => {
-      const analyticsData = {
-        userId: token.user._id,
-        paperId: testId,
-        userAnswers: selectedAnswers,
-        timeWasted: [],
-        totalScore: 0,
-        scorePerQuestion: [],
-      };
+    //   const analyticsData = {
+    //     userId: token.user._id,
+    //     paperId: testId,
+    //     userAnswers: selectedAnswers,
+    //     timeWasted: [],
+    //     totalScore: 0,
+    //     scorePerQuestion: [],
+    //   };
+      navigate("/app/dashboard");
       
       // Replace 'http://your-api-server/api/analytics/create' with the actual URL of your server endpoint
-      axios.post('http://localhost:8000/api/v1/analytics/submit-paper/', analyticsData)
-        .then(response => {
-          console.log('Success:', response.data);
-          navigate("/app/dashboard")
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          toast({
-            title: "Some error has occurred",
-            position: 'bottom-right',
-            status: 'error',
-            duration: 1000,
-            isClosable: true,
-        })
-        });
+    //   axios.post('http://localhost:8000/api/v1/analytics/submit-paper/', analyticsData)
+    //     .then(response => {
+    //       console.log('Success:', response.data);
+    //       navigate("/app/dashboard")
+    //     })
+    //     .catch(error => {
+    //       console.error('Error:', error);
+    //       toast({
+    //         title: "Some error has occurred",
+    //         position: 'bottom-right',
+    //         status: 'error',
+    //         duration: 1000,
+    //         isClosable: true,
+    //     })
+    //     });
     }
 
     useEffect(() => {
@@ -301,50 +303,32 @@ export default function TestInterface() {
         return buttonProps;
       };
 
+
   return (
-    <>
-    <Flex as="nav" p="2px" alignItems='center' gap='10px' bgColor='gray.200' justifyContent='center'>
-        <Heading as="h1" p="10px">TestSeva</Heading>
-        <Spacer />
-        <Flex>
-            <Card bg='black' color='white'>
-            <CardBody >
-                <Text>{hours.toString().padStart(2, "0")}</Text>
-            </CardBody>
-            </Card>
-            <Text mx={2} fontWeight='bold' fontSize='2xl' alignSelf='center'>:</Text> {/* Add a colon between the cards */}
-            <Card bg='black' color='white'>
-            <CardBody>
-                <Text>{minutes.toString().padStart(2, "0")}</Text>
-            </CardBody>
-            </Card>
-            <Text mx={2} fontWeight='bold' fontSize='2xl' alignSelf='center'>:</Text> {/* Add a colon between the cards */}
-            <Card bg='black' color='white'>
-            <CardBody>
-                <Text>{seconds.toString().padStart(2, "0")}</Text>
-            </CardBody>
-            </Card>
-        </Flex>
+    <div class='screen'>
+    <Flex as="nav" p="2px" alignItems='center' gap='10px' bgColor='#FFFFFF' justifyContent='center'>
+        <Heading as="h1" p="10px">NoticeBoard</Heading>
         <Spacer />
         {/* <Text fontSize='2xl'>{token.user.username}</Text> */}
-        <Avatar bg='teal.500'/>
-        <Stack spacing={0.5} p="3px">
-            <Text>
-                Candidate Name : {token.user.firstName} {token.user.lastName}
-            </Text>
-            {questionPaper && (
-                <>
-            <Text>
-                Test Name : {questionPaper._doc.paperTitle}
-            </Text>
-            <Text>
-                Total Time : {questionPaper._doc.TimeLimit} minutes
-            </Text>
-            </>
-            )}
-        </Stack>
+        <Button size="md" borderRadius="0px" colorScheme='green' onClick={PaperSubmitHandler}>Dashboard</Button>
     </ Flex>
-    <Flex bgColor='orange' p='15px' alignItems='center' >
+    <Flex flexWrap="wrap" gap="12px" p="20px">
+                    {questionPaper &&
+                        questionPaper.questions.slice(1).map((question, index) => (
+                        // <Button key={index} {...getButtonProps(index)}>
+                        //     {String(index + 1).padStart(2, '0')}
+                        // </Button>
+                        <div class='box'>
+                            <heading class="noticeTitle">
+                                {question.question}
+                            </heading>
+                            <div>
+                                {question.options}
+                            </div>
+                        </div>
+                    ))}
+    </Flex>
+    {/* <Flex bgColor='orange' p='15px' alignItems='center' >
         <Text fontSize='30px' >JEE MAIN</Text>
         <Spacer />
         <Button colorScheme='blue' size='lg'>
@@ -457,9 +441,12 @@ export default function TestInterface() {
                 <Flex flexWrap="wrap" gap="12px" p="20px">
                     {questionPaper &&
                         questionPaper.questions.slice(0,-1).map((question, index) => (
-                        <Button key={index} {...getButtonProps(index)}>
-                            {String(index + 1).padStart(2, '0')}
-                        </Button>
+                        // <Button key={index} {...getButtonProps(index)}>
+                        //     {String(index + 1).padStart(2, '0')}
+                        // </Button>
+                        <div class='box'>
+                            {question.question}
+                        </div>
                     ))}
                 </Flex>
         </GridItem>
@@ -474,7 +461,7 @@ export default function TestInterface() {
             </Text>
           </ModalBody>
         </ModalContent>
-      </Modal>
-    </>
+      </Modal> */}
+    </div>
   )
 }

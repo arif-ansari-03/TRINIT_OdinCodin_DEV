@@ -1,0 +1,21 @@
+.box {
+    width: 24.27%;
+    height: 300px;
+    background-color: #e6f4f1; /* Light teal background */
+    border: 2px solid #38b2ac; /* Teal border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 20px; /* Space inside the box */
+    font-family: Arial, sans-serif; /* Clean, readable font */
+    color: #333; /* Dark text for good contrast */
+}
+
+.noticeTitle{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.screen {
+    background-color: #F5F5FA;
+    height: 100%;
+}

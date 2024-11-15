@@ -281,7 +281,7 @@ const AddTestView = () => {
       <Flex gap={10}>
         <Link to="/app/create-tool">
         <Button colorScheme="blue" size="lg" width="100%">
-          Create a test manually
+          Create a Noticeboard
         </Button>
         </Link>
         <Button colorScheme="blue" size="lg" width="100%" onClick={onOpen}>

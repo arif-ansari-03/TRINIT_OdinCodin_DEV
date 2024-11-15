@@ -132,7 +132,7 @@ export default function Dashboard() {
           </TabList>
           <TabPanels>
             <TabPanel>
-              <Wrap spacing="15px" justify="center" mt="15px">
+              <Wrap spacing="15px" justify="left" mt="15px">
                 {allPapers.map((paper, index) => (
                   <WrapItem key={index}>
                     <Card maxW="sm" p="8px" border="1px" borderColor="gray.300">
@@ -151,14 +151,7 @@ export default function Dashboard() {
                       <CardFooter>
                         <ButtonGroup spacing="2">
                           <Button variant="solid" colorScheme="green" onClick={() => paperAttempt(paper)}>
-                            Attempt Now
-                          </Button>
-                          <Button
-                            variant="solid"
-                            colorScheme="gray"
-                            color="gray"
-                          >
-                            Analytics
+                            Open
                           </Button>
                           <Button
                             variant="solid"
@@ -166,7 +159,7 @@ export default function Dashboard() {
                             color="gray"
                             onClick={() => checkifMember(paper.GroupID)}
                           >
-                            Discuss
+                            Notes
                           </Button>
                         </ButtonGroup>
                       </CardFooter>
@@ -176,7 +169,7 @@ export default function Dashboard() {
               </Wrap>
             </TabPanel>
             <TabPanel>
-              <Wrap spacing="15px" justify="center" mt="15px">
+              <Wrap spacing="15px" justify="left" mt="15px">
                 {userPapers.map((paper, index) => (
                   <WrapItem key={index}>
                     <Card maxW="md" p="8px" border="1px" borderColor="gray.300">
@@ -210,15 +203,8 @@ export default function Dashboard() {
                       <Divider />
                       <CardFooter>
                         <ButtonGroup spacing="2">
-                          <Button variant="solid" colorScheme="green">
-                            Attempt Now
-                          </Button>
-                          <Button
-                            variant="solid"
-                            colorScheme="gray"
-                            color="gray"
-                          >
-                            Analytics
+                          <Button variant="solid" colorScheme="green" onClick={() => paperAttempt(paper)}>
+                            Open
                           </Button>
                           <Button
                             variant="solid"
@@ -236,7 +222,7 @@ export default function Dashboard() {
               </Wrap>
             </TabPanel>
             <TabPanel>
-              <Wrap spacing="15px" justify="center" mt="15px">
+              <Wrap spacing="15px" justify="left" mt="15px">
                 {allPapers.map((paper, index) => (
                   <WrapItem key={index}>
                     <Card maxW="sm" p="8px" border="1px" borderColor="gray.300">
@@ -255,14 +241,7 @@ export default function Dashboard() {
                       <CardFooter>
                         <ButtonGroup spacing="2">
                           <Button variant="solid" colorScheme="green" onClick={() => paperAttempt(paper)}>
-                            Attempt Now
-                          </Button>
-                          <Button
-                            variant="solid"
-                            colorScheme="gray"
-                            color="gray"
-                          >
-                            Analytics
+                            Open
                           </Button>
                           <Button
                             variant="solid"
@@ -270,7 +249,7 @@ export default function Dashboard() {
                             color="gray"
                             onClick={() => checkifMember(paper.GroupID)}
                           >
-                            Discuss
+                            Notes
                           </Button>
                         </ButtonGroup>
                       </CardFooter>

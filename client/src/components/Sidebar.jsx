@@ -50,7 +50,7 @@ export default function Sidebar() {
             </Flex>
           </Box>
         </NavLink>
-        <NavLink to="/app/groups" activeClassName="active">
+        {/* <NavLink to="/app/groups" activeClassName="active">
           <Box padding="8px 12px" borderRadius="8px" _hover={{ backgroundColor: "rgb(50, 201, 196, 0.2)" }}>
             <Flex size="lg" direction="column" justify="center" align="center">
               <svg
@@ -93,7 +93,7 @@ export default function Sidebar() {
               <Text size="sm">Friends</Text>
             </Flex>
           </Box>
-        </NavLink>
+        </NavLink> */}
       </Flex>
     </Box>
   );
