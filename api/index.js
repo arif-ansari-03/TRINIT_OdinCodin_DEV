@@ -36,7 +36,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect(process.env.mongo_link); 
+mongoose.connect("mongodb+srv://itsaryanpatil:oneboard@oneboardcluster1.ibxuo.mongodb.net/UserPass"); 
 app.use(express.json());
 
 app.get("/", (req, res) => {
@@ -121,6 +121,6 @@ app.use("/api/v1/analytics", analyticsRoute);
 
 passportSetup();
 
-app.listen(process.env.PORT, () => {
+app.listen(8000, () => {
     console.log("Backend server is running!")
 })

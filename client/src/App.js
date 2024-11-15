@@ -18,6 +18,7 @@ import AddTestView from './components/addTestView';
 import EditQuestions from './components/editQuestions';
 import TestInterface from './pages/TestInterface';
 import ManualTests from './components/manualTests';
+import DashboardOB from "./components/dashboardob";
 
 function App() {
   const cookies = new Cookies();
@@ -65,6 +66,7 @@ function App() {
           <Route path="groups/:id" element={<GroupID ifTest={false}/>} />
           <Route path="tests/:id" element={<GroupID ifTest={true}/>} />
           <Route path="create-tool" element={<ManualTests/>} />
+          <Route path="dashboardob" element={<DashboardOB/>} />
           </Route>
       </Routes>
     </Router>
