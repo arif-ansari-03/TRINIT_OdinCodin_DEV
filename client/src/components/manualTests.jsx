@@ -77,19 +77,19 @@ const ManualTests = () => {
                     mb={4}
                 >
                     <Heading as="h3" size="md" mb={4}>
-                        Question {i + 1}
+                        Notice {i + 1}
                     </Heading>
 
                     <FormControl mb={4}>
-                        <FormLabel>Question Title</FormLabel>
-                        <Input placeholder={`Enter title for Question ${i + 1}`} id={`question${i}`}/>
+                        <FormLabel>Notice Title</FormLabel>
+                        <Input placeholder={`Enter title for Notice ${i + 1}`} id={`question${i}`}/>
                     </FormControl>
 
                     <FormControl mb={4}>
-                        <FormLabel>{`Option 1`}</FormLabel>
-                        <Input placeholder={`Enter Option 1`} id={`option1${i}`}/>
+                        <FormLabel>{`Enter Content`}</FormLabel>
+                        <Input placeholder={`Enter Content`} id={`option1${i}`}/>
                     </FormControl>
-
+                    {/*
                     <FormControl mb={4}>
                         <FormLabel>{`Option 2`}</FormLabel>
                         <Input placeholder={`Enter Option 2`} id={`option2${i}`}/>
@@ -109,6 +109,7 @@ const ManualTests = () => {
                         <FormLabel>Answer Option:</FormLabel>
                         <Input type="text" placeholder="Enter a,b,c or d" id={`answer${i}`}/>
                     </FormControl>
+                    */}
                 </Flex>
             );
         }
@@ -172,7 +173,7 @@ const ManualTests = () => {
             gap={5}
             bg="gray.100"
         >
-            <Heading mb={4}>OdinCodin Test Creator Tool</Heading>
+            <Heading mb={4}>OneBoard Noticeboard Generator</Heading>
             <Flex
                 direction="row"
                 alignItems="center"
@@ -185,15 +186,15 @@ const ManualTests = () => {
                 boxShadow="md"
             >
                 <FormControl>
-                    <FormLabel>Paper Title</FormLabel>
-                    <Input type="text" placeholder="Enter Paper Title" onChange={(e) => setTitle(e.target.value)} />
+                    <FormLabel>Noticeboard Title</FormLabel>
+                    <Input type="text" placeholder="Enter Noticeboard Title" onChange={(e) => setTitle(e.target.value)} />
                 </FormControl>
 
                 <FormControl>
-                    <FormLabel>Number of questions</FormLabel>
-                    <Input type="Number" placeholder="Enter number of questions" onChange={(e) => setNumberOfQuestions(e.target.value)} />
+                    <FormLabel>Number of Notices</FormLabel>
+                    <Input type="Number" placeholder="Enter number of Notices" onChange={(e) => setNumberOfQuestions(e.target.value)} />
                 </FormControl>
-
+                {/*}
                 <FormControl>
                     <FormLabel>Visibility</FormLabel>
                     <Select onChange={(e) => setVisibility(e.target.value)}>
@@ -205,7 +206,8 @@ const ManualTests = () => {
                 <FormControl>
                     <FormLabel>Time Limit</FormLabel>
                     <Input type="number" placeholder="Enter Time Limit (minutes)" onChange={(e) => setTime(e.target.value)} />
-                </FormControl>
+                </FormControl> 
+                */}
             </Flex>
             <Flex direction="column">
                 <Heading>{title}  {time.length === 0 ? "" : " for " + time + " minutes"}</Heading>
@@ -289,14 +291,15 @@ const ManualTests2 = () => {
                     </Heading>
 
                     <FormControl mb={4}>
-                        <FormLabel>Question Title</FormLabel>
-                        <Input placeholder={`Enter title for Question ${i + 1}`} id={`question${i}`}/>
+                        <FormLabel>Content</FormLabel>
+                        <Input placeholder={`Enter Content for Notice ${i + 1}`} id={`question${i}`}/>
                     </FormControl>
-
+                    
                     <FormControl mb={4}>
-                        <FormLabel>{`Option 1`}</FormLabel>
-                        <Input placeholder={`Enter Option 1`} id={`option1${i}`}/>
+                        <FormLabel>{`Body`}</FormLabel>
+                        <Input placeholder={`Enter Body`} id={`option1${i}`}/>
                     </FormControl>
+                    
 
                     <FormControl mb={4}>
                         <FormLabel>{`Option 2`}</FormLabel>
@@ -317,6 +320,8 @@ const ManualTests2 = () => {
                         <FormLabel>Answer Option:</FormLabel>
                         <Input type="text" placeholder="Enter a,b,c or d" id={`answer${i}`}/>
                     </FormControl>
+
+                    
                 </Flex>
             );
         }
@@ -380,7 +385,7 @@ const ManualTests2 = () => {
             gap={5}
             bg="gray.100"
         >
-            <Heading mb={4}>OdinCodin Test Creator Tool</Heading>
+            <Heading mb={8}>OneBoard Noticeboard Creator Tool</Heading>
             <Flex
                 direction="row"
                 alignItems="center"
@@ -393,13 +398,13 @@ const ManualTests2 = () => {
                 boxShadow="md"
             >
                 <FormControl>
-                    <FormLabel>Paper Title</FormLabel>
-                    <Input type="text" placeholder="Enter Paper Title" onChange={(e) => setTitle(e.target.value)} />
+                    <FormLabel>Noticeboard Title</FormLabel>
+                    <Input type="text" placeholder="Enter Noticeboard Title" onChange={(e) => setTitle(e.target.value)} />
                 </FormControl>
 
                 <FormControl>
-                    <FormLabel>Number of questions</FormLabel>
-                    <Input type="Number" placeholder="Enter number of questions" onChange={(e) => setNumberOfQuestions(e.target.value)} />
+                    <FormLabel>Number of Notices</FormLabel>
+                    <Input type="Number" placeholder="Enter number of notices" onChange={(e) => setNumberOfQuestions(e.target.value)} />
                 </FormControl>
 
                 <FormControl>

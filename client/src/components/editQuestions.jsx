@@ -33,7 +33,7 @@ const EditQuestions = ({}) => {
                 <Link to="/app/addTest" >
                 <Button>Go Back</Button>
                 </Link>
-                <Heading>Mock Test - Editor Window</Heading>
+                <Heading>Notice Board - Editor Window</Heading>
             </Flex>
             <Cards questions={questions} paperId = {paperId}/>
         </Flex>

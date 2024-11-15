@@ -23,7 +23,7 @@ const QuestionCard = ({ question, index, paperId, updateQuestion, updateOptions,
         <h2>
           <AccordionButton>
             <Box as="span" flex="1" textAlign="left">
-              {index === 0 ? <h3>Instructions:</h3> : <h3>Question {index}</h3>}
+              {index === 1000 ? <h3>Instructions:</h3> : <h3>Notice {1+index}</h3>}
             </Box>
             <AccordionIcon />
           </AccordionButton>

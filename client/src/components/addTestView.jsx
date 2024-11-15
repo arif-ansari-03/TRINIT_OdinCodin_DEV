@@ -39,7 +39,7 @@ import { FormControl, FormLabel } from "@chakra-ui/react";
 import { useDisclosure } from "@chakra-ui/react";
 import axios from "axios";
 import QuestionParser from "./QuestionParser";
-import Cards from "./Cards";
+import Cards from "./Cards"; 
 import Cookies from "universal-cookie";
 import { useToast, Heading } from "@chakra-ui/react";
 import { IconButton } from "@chakra-ui/react";
@@ -284,9 +284,6 @@ const AddTestView = () => {
           Create a Noticeboard
         </Button>
         </Link>
-        <Button colorScheme="blue" size="lg" width="100%" onClick={onOpen}>
-          Generate a test from a PDF
-        </Button>
       </Flex>
       <Flex gap={10}>
         <Wrap spacing="15px" justify="center" mt="15px">
@@ -296,37 +293,7 @@ const AddTestView = () => {
                 <CardBody>
                   <Stack mt="6" spacing="3">
                     <Heading size="md">{paper.paperTitle}</Heading>
-                    <Flex
-                      direction="row"
-                      align="center"
-                      justifyContent="space-between"
-                    >
-                      {paper.Private ? (
-                        <Text fontSize="xl">Private</Text>
-                      ) : (
-                        <Text fontSize="xl">Public</Text>
-                      )}
-
-                      <Switch
-                        id="isChecked"
-                        isChecked={paper.Private}
-                        onChange={() => toggleSwitch(paper._id)}
-                      />
-                    </Flex>
-                    <Text>(Press enter to update time)</Text>
-                    <Flex direction="row" align="center" gap={10}>
-                      <Editable
-                        placeholder={paper.TimeLimit}
-                        onSubmit={(value) => updateTime(paper._id, value)}
-                        onChange={() =>
-                          setPaperToUpdate((prev) => (prev = paper._id))
-                        }
-                      >
-                        <EditablePreview />
-                        <EditableInput type="Number" />
-                      </Editable>
-                      <Text>Minutes</Text>
-                    </Flex>
+                    
                     <Text color="blue.600" fontSize="2xl">
                       {token.user.username}
                     </Text>
@@ -350,16 +317,9 @@ const AddTestView = () => {
                         >
                           <polygon points="16 3 21 8 8 21 3 21 3 16 16 3"></polygon>
                         </svg>
-                        Edit questions
+                        Edit Content
                       </Button>
                     </Link>
-                    <Button
-                      variant="solid"
-                      colorScheme="green"
-                      onClick={() => handleSubmit(paper._id)}
-                    >
-                      Submit
-                    </Button>
                   </ButtonGroup>
                 </CardFooter>
               </Card>

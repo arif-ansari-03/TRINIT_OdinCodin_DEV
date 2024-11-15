@@ -128,7 +128,6 @@ export default function Dashboard() {
           <TabList>
             <Tab>Shared</Tab>
             <Tab>Owned</Tab>
-            <Tab>Bookmarked</Tab>
           </TabList>
           <TabPanels>
             <TabPanel>
@@ -197,43 +196,6 @@ export default function Dashboard() {
                           </Flex>
                           <Text color="blue.600" fontSize="2xl">
                             You
-                          </Text>
-                        </Stack>
-                      </CardBody>
-                      <Divider />
-                      <CardFooter>
-                        <ButtonGroup spacing="2">
-                          <Button variant="solid" colorScheme="green" onClick={() => paperAttempt(paper)}>
-                            Open
-                          </Button>
-                          <Button
-                            variant="solid"
-                            colorScheme="gray"
-                            color="gray"
-                            onClick={() => checkifMember(paper.GroupID)}
-                          >
-                            Notes
-                          </Button>
-                        </ButtonGroup>
-                      </CardFooter>
-                    </Card>
-                  </WrapItem>
-                ))}
-              </Wrap>
-            </TabPanel>
-            <TabPanel>
-              <Wrap spacing="15px" justify="left" mt="15px">
-                {allPapers.map((paper, index) => (
-                  <WrapItem key={index}>
-                    <Card maxW="sm" p="8px" border="1px" borderColor="gray.300">
-                      <CardBody>
-                        <Stack mt="6" spacing="3">
-                          <Flex direction="row" justify="space-between">
-                            <Heading size="md">{paper.paperTitle}</Heading>
-
-                          </Flex>
-                          <Text color="blue.600" fontSize="2xl">
-                            {paper.userId.username}
                           </Text>
                         </Stack>
                       </CardBody>

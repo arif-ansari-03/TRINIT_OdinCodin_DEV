@@ -129,7 +129,7 @@ const Cards = ({ questions, paperId }) => {
         <CircularProgress isIndeterminate color="green.300" />
       ) : (
         <Stack>
-          {questions.map((q, index) => (
+          {questions.slice(1).map((q, index) => (
             <QuestionCard
               key={index}
               question={q}
