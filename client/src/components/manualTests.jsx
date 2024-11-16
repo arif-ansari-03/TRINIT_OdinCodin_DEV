@@ -89,27 +89,27 @@ const ManualTests = () => {
                         <FormLabel>{`Enter Content`}</FormLabel>
                         <Input placeholder={`Enter Content`} id={`option1${i}`}/>
                     </FormControl>
-                    {/*
-                    <FormControl mb={4}>
+                    
+                    <FormControl mb={4} style={{display: 'none'}}>
                         <FormLabel>{`Option 2`}</FormLabel>
-                        <Input placeholder={`Enter Option 2`} id={`option2${i}`}/>
+                        <Input value={`Enter Option 2`} id={`option2${i}`}/>
                     </FormControl>
 
-                    <FormControl mb={4}>
+                    <FormControl mb={4} style={{display: 'none'}}>
                         <FormLabel>{`Option 3`}</FormLabel>
-                        <Input placeholder={`Enter Option 3`} id={`option3${i}`}/>
+                        <Input value={`Enter Option 3`} id={`option3${i}`}/>
                     </FormControl>
 
-                    <FormControl mb={4}>
+                    <FormControl mb={4} style={{display: 'none'}}>
                         <FormLabel>{`Option 4`}</FormLabel>
-                        <Input placeholder={`Enter Option 4`} id={`option4${i}`}/>
+                        <Input value={`Enter Option 4`} id={`option4${i}`}/>
                     </FormControl>
 
-                    <FormControl mb={4}>
+                    <FormControl mb={4} style={{display: 'none'}}>
                         <FormLabel>Answer Option:</FormLabel>
-                        <Input type="text" placeholder="Enter a,b,c or d" id={`answer${i}`}/>
+                        <Input type="text" value="a" id={`answer${i}`}/>
                     </FormControl>
-                    */}
+                   
                 </Flex>
             );
         }
@@ -122,37 +122,37 @@ const ManualTests = () => {
         setGenerating(true);
         for (let i = 0; i < numberOfQuestions; i++) {
             const questionText = document.getElementById(`question${i}`).value
-            const option1 = "(a)" + document.getElementById(`option1${i}`).value
-            const option2 = "(b)" + document.getElementById(`option2${i}`).value
-            const option3 = "(c)" + document.getElementById(`option3${i}`).value
-            const option4 = "(d)" + document.getElementById(`option4${i}`).value
+            const option1 = document.getElementById(`option1${i}`).value
+            const option2 = ""
+            const option3 = ""
+            const option4 = ""
             const answer = document.getElementById(`answer${i}`).value
 
-            if (questionText === "" || option1 === "" || option2 === "" || option3 === "" || option4 === "" || answer === "") {
-                toast({
-                    title: 'Some fields are empty!',
-                    position: 'top-left',
-                    status: 'error',
-                    duration: 1000,
-                    isClosable: true,
-                });
+            // if (questionText === "" || option1 === "" || option2 === "" || option3 === "" || option4 === "" || answer === "") {
+            //     toast({
+            //         title: 'Some fields are empty!',
+            //         position: 'top-left',
+            //         status: 'error',
+            //         duration: 1000,
+            //         isClosable: true,
+            //     });
 
-                setGenerating(false);
-                return;
-            }
+            //     setGenerating(false);
+            //     return;
+            // }
 
-            if (answer !== "a" || answer !== "b" || answer !== "c" || answer !== "d") {
-                toast({
-                    title: 'Answer should be a,b,c or d',
-                    position: 'top-left',
-                    status: 'error',
-                    duration: 1000,
-                    isClosable: true,
-                });
+            // if (answer !== "a" || answer !== "b" || answer !== "c" || answer !== "d") {
+            //     toast({
+            //         title: 'Answer should be a,b,c or d',
+            //         position: 'top-left',
+            //         status: 'error',
+            //         duration: 1000,
+            //         isClosable: true,
+            //     });
 
-                setGenerating(true);
-                // return;
-            }
+            //     setGenerating(true);
+            //     // return;
+            // }
 
             const questionObj = {question: questionText, options: [option1.split(''), option2.split(''), option3.split(''), option4.split('')], questionImage: "", ansVal: answer}
             questions.push(questionObj)
@@ -334,37 +334,37 @@ const ManualTests2 = () => {
         setGenerating(true);
         for (let i = 0; i < numberOfQuestions; i++) {
             const questionText = document.getElementById(`question${i}`).value
-            const option1 = "(a)" + document.getElementById(`option1${i}`).value
-            const option2 = "(b)" + document.getElementById(`option2${i}`).value
-            const option3 = "(c)" + document.getElementById(`option3${i}`).value
-            const option4 = "(d)" + document.getElementById(`option4${i}`).value
-            const answer = document.getElementById(`answer${i}`).value
+            const option1 = document.getElementById(`option1${i}`).value
+            const option2 = ""
+            const option3 = ""
+            const option4 = ""
+            const answer = ""
 
-            if (questionText === "" || option1 === "" || option2 === "" || option3 === "" || option4 === "" || answer === "") {
-                toast({
-                    title: 'Some fields are empty!',
-                    position: 'top-left',
-                    status: 'error',
-                    duration: 1000,
-                    isClosable: true,
-                });
+            // if (questionText === "" || option1 === "" || option2 === "" || option3 === "" || option4 === "" || answer === "") {
+            //     toast({
+            //         title: 'Some fields are empty!',
+            //         position: 'top-left',
+            //         status: 'error',
+            //         duration: 1000,
+            //         isClosable: true,
+            //     });
 
-                setGenerating(false);
-                return;
-            }
+            //     setGenerating(false);
+            //     return;
+            // }
 
-            if (answer !== "a" || answer !== "b" || answer !== "c" || answer !== "d") {
-                toast({
-                    title: 'Answer should be a,b,c or d',
-                    position: 'top-left',
-                    status: 'error',
-                    duration: 1000,
-                    isClosable: true,
-                });
+            // if (answer !== "a" || answer !== "b" || answer !== "c" || answer !== "d") {
+            //     toast({
+            //         title: 'Answer should be a,b,c or d',
+            //         position: 'top-left',
+            //         status: 'error',
+            //         duration: 1000,
+            //         isClosable: true,
+            //     });
 
-                setGenerating(true);
-                // return;
-            }
+            //     setGenerating(true);
+            //     // return;
+            // }
 
             const questionObj = {question: questionText, options: [option1.split(''), option2.split(''), option3.split(''), option4.split('')], questionImage: "", ansVal: answer}
             questions.push(questionObj)
