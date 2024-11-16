@@ -62,7 +62,7 @@ router.post("/create-paper", async (req, res) => {
 router.get("/getAllPapers/:id", async (req, res) => {
     try {
         const { id } = req.params;
-        const papers = await Paper.find({ sharedWith: {$in: [id]}}).populate('userId');
+        const papers = await Paper.find({ userId: { $ne: id } }).populate('userId');
         res.status(200).json(papers);
     } catch (error) {
         res.status(500).json(error);
